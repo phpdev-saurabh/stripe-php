@@ -1,0 +1,1 @@
+<h1 align="center">PHP Stripe Integration Module</h1>
