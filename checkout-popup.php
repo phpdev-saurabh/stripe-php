@@ -1,3 +1,7 @@
+<?php 
+
+require_once('config.php'); 
+?>
 <html>
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -10,8 +14,51 @@
 			<div class="row">
 				<div class="col-md-12">
 					
+
+				<script src="https://checkout.stripe.com/checkout.js"></script>
+
+				<button id="customButton" class="btn btn-primary">Stripe Pay Button</button>
+
+				<form action="checkout-popup-charge.php" id="stripe_charge_form" method="POST">
+					<input type="hidden" name="stripe_token" value="" id="stripe_token">
+					<input type="hidden" name="item_id" value="" id="123">
+				</form>
+
+				<script>
+				var handler = StripeCheckout.configure({
+				  key: '<?php echo API_KEY;?>',
+				  image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+				  locale: 'auto',
+				  token: function(token) {
+				    // You can access the token ID with `token.id`.
+				    // Get the token ID to your server-side code for use.
+
+				    // Send Token To Server using HTML Form
+				    $("#stripe_token").val(token.id);
+				    $("#stripe_charge_form").submit();
+				  }
+				});
+
+				document.getElementById('customButton').addEventListener('click', function(e) {
+				  // Open Checkout with further options:
+				  handler.open({
+				    name: 'Demo Site',
+				    description: '2 widgets',
+				    amount: 2000
+				  });
+				  e.preventDefault();
+				});
+
+				// Close Checkout on page navigation:
+				window.addEventListener('popstate', function() {
+				  handler.close();
+				});
+				</script>
+
+
 				</div>
 			</div>
 		</div>
 	</body>
+	
 </html>
