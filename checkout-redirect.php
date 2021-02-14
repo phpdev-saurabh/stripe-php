@@ -18,8 +18,8 @@ $session = \Stripe\Checkout\Session::create([
     'quantity' => 1,
   ]],
   'mode' => 'payment',
-  'success_url' => 'https://example.com/success',
-  'cancel_url' => 'https://example.com/cancel',
+  'success_url' => $_SERVER['HTTP_REFERER'].'success.php',
+  'cancel_url' => $_SERVER['HTTP_REFERER'].'cancel.php',
 ]); 
 
 ?>
@@ -36,7 +36,7 @@ $session = \Stripe\Checkout\Session::create([
 				<div class="col-md-12">
 					
 
-					<button id="checkout-button"> Pay </button>
+					<button id="checkout-button" class="btn btn-primary"> Pay </button>
 
 
 

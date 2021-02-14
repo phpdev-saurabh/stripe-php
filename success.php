@@ -8,14 +8,10 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4">
-					<a href="checkout-popup.php" class="btn btn-primary">Stripe Popup Button</a>
-				</div>
-				<div class="col-md-4">
-					<a href="checkout-redirect.php" class="btn btn-primary">Stripe Popup Updated</a>
-				</div>
-				<div class="col-md-4">
-					<a href="checkout-form.php" class="btn btn-info">Stripe Checkout Form</a>
+				<div class="col-md-12">
+					<div class="alert alert-success" role="alert">
+						Payment Successful  
+					</div>
 				</div>
 			</div>
 			<hr>
