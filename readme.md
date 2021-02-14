@@ -2,4 +2,4 @@
 
 <p align="center">Rename config.sample.php file to config.php</p>
 
-<p align="center">Run Command : Composer update OR Composer intall for production server.</p>
+<p align="center">Run Command : composer update OR composer intall for production server.</p>
